@@ -6,6 +6,7 @@ import Producto from "./producto.js";
 import ElementoPedido from "./elementop.js"
 import Pedido from "./pedido.js";
 import Restaurante from "./restaurante.js";
+import Cliente from "./cliente.js";
 
 class Main {
   constructor() {
@@ -14,6 +15,7 @@ class Main {
     this.direccion = new Direccion("Av. Insurgentes",321,2,"Miguel Hidalgo",28100,"Tecoman","Armeria");
     this.precio = new Precio(1700.00)
     this.producto = new Producto("Bolillo Seco", this.precio)
+    this.cliente = new Cliente("Chabelo", this.direccion, 313-113-1122)
     this.elementoPedido = new ElementoPedido(this.producto , 35, this.precio)
     this.pedido = new Pedido(this.fecha, this.tiempo, this.direccion)
     this.pedido.agregarElemento(this.elementoPedido)
@@ -44,6 +46,9 @@ class Main {
   }
   probarElemento() {
       console.log(`${this.elementoPedido.getDescripcion()}`)
+  }
+  probarCliente() {
+    console.log(`${this.cliente.getPerfil()}`)
   }
   probarPedido() {
     this.pedido.listarElementos()
