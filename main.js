@@ -3,6 +3,7 @@ import Tiempo from "./tiempo.js";
 import Direccion from "./direccion.js";
 import Precio from "./precio.js";
 import Producto from "./producto.js";
+import ElementoPedido from "./elementop.js"
 
 class Main {
   constructor() {
@@ -11,6 +12,7 @@ class Main {
     this.direccion = new Direccion("Av. Insurgentes",321,2,"Miguel Hidalgo",28100,"Tecoman","Armeria");
     this.precio = new Precio(1700.00)
     this.producto = new Producto("Bolillo Seco", this.precio)
+    this.elementoPedido = new ElementoPedido(this.producto , 35, this.precio)
 
   }
   probarFecha() {
@@ -35,6 +37,9 @@ class Main {
   probarProducto() {
       console.log(`${this.producto.getDescripcion()}`)
   }
+  probarElemento() {
+      console.log(`${this.elementoPedido.getDescripcion()}`)
+  }
 }
 let app = new Main
-app.probarProducto()
+app.probarElemento()
