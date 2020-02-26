@@ -5,6 +5,7 @@ import Precio from "./precio.js";
 import Producto from "./producto.js";
 import ElementoPedido from "./elementop.js"
 import Pedido from "./pedido.js";
+import Restaurante from "./restaurante.js";
 
 class Main {
   constructor() {
@@ -16,6 +17,7 @@ class Main {
     this.elementoPedido = new ElementoPedido(this.producto , 35, this.precio)
     this.pedido = new Pedido(this.fecha, this.tiempo, this.direccion)
     this.pedido.agregarElemento(this.elementoPedido)
+    this.restaurante = new Restaurante("La polar", 312-455-3456, this.direccion)
 
   }
   probarFecha() {
@@ -50,6 +52,13 @@ class Main {
     console.log(this.pedido.getNumeroElementos())
     console.log(this.pedido.getResumen())
   }
+  probarRestaurante() {
+    this.restaurante.registrarProducto(this.producto)
+    this.restaurante.registrarPedido(this.pedido)
+
+    this.restaurante.listarProductos()
+    this.restaurante.listarPedidos()
+  }
 }
 let app = new Main
-app.probarPedido()
+app.probarRestaurante()
