@@ -1,6 +1,5 @@
 import Precio from "./precio.js";
 
-
 export default class ElementoPedido {
   /**
    *
@@ -11,10 +10,11 @@ export default class ElementoPedido {
   constructor(producto, cantidad, precio) {
     this.producto = producto;
     this.cantidad = cantidad;
-    this.precio = precio;
   }
+
   getDescripcion() {
-    return `${this.cantidad} x ${this.producto.nombre} = ${this.producto.precio
-      .valor * this.cantidad}`;
+    let elemento = this.cantidad * this.producto.precio.valor;
+    elemento = new Precio(elemento);
+    return `${this.cantidad} X ${this.producto.nombre} ${elemento.getPrecio()}`;
   }
 }
